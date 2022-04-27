@@ -39,4 +39,4 @@ If you are using our model, please cite our paper:
 
 ## Contact Information ##
 * For help or issues using In-BoXBART, please submit a GitHub issue.
-* Please contact Mihir Parmar (mparmar3@asu.edu) or Mirali Purohit (mpurohi33@asu.edu) for communication related to In-BoXBART.
+* Please contact Mihir Parmar (mparmar3@asu.edu) or Mirali Purohit (mpurohi3@asu.edu) for communication related to In-BoXBART.
