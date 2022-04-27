@@ -4,7 +4,7 @@ An instruction-based unified model for performing various biomedical tasks.
 
 You may want to check out 
 * Our paper (NAACL 2022 Findings): [In-BoXBART: Get Instructions into Biomedical Multi-Task Learning](https://arxiv.org/abs/2204.07600)
-* GitHub: [Click Here](https://github.com/Mihir3009/In-BoXBART)
+* Hugging Face: [cogint/in-boxbart](https://huggingface.co/cogint/in-boxbart)
 
 This work explores the impact of instructional prompts on biomedical Multi-Task Learning. We introduce the BoX, a collection of 32 instruction tasks for Biomedical NLP across (X) various categories. Using this meta-dataset, we propose a unified model termed In-BoXBART, that can jointly learn all tasks of the BoX without any task-specific modules. To the best of our knowledge, this is the first attempt to
 propose a unified model in the biomedical domain and use instructions to achieve generalization across several biomedical tasks.
@@ -36,3 +36,7 @@ If you are using our model, please cite our paper:
   year={2022}
 }
 ```
+
+## Contact Information ##
+* For help or issues using In-BoXBART, please submit a GitHub issue.
+* Please contact Mihir Parmar (mparmar3@asu.edu) or Mirali Purohit (mpurohi33@asu.edu) for communication related to In-BoXBART.
