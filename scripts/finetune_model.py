@@ -18,11 +18,11 @@ Fine-tuning the library models for sequence to sequence.
 """
 # You can also adapt this script on your own sequence to sequence task. Pointers for this are left as comments.
 
-import logging
 import os
 import sys
-from dataclasses import dataclass, field
+import logging
 from typing import Optional
+from dataclasses import dataclass, field
 
 import nltk  # Here to have a nice missing dependency error message early on
 import numpy as np
@@ -40,9 +40,9 @@ from transformers import (
     Seq2SeqTrainingArguments,
     set_seed,
 )
+from transformers.utils import check_min_version
 from transformers.file_utils import is_offline_mode
 from transformers.trainer_utils import get_last_checkpoint, is_main_process
-from transformers.utils import check_min_version
 
 
 # Will error if the minimal version of Transformers is not installed. Remove at your own risks.
