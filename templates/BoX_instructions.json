@@ -1,0 +1,429 @@
+{
+    "AnatEM": {
+        "Definition:": "In this task, you are given a small paragraph, your task is to identify all the anatomy (named) entities from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "The cells were examined in a Zeiss LSM 510 laser scanning microscope equipped with a Plan - Apochromate 63x / 1 . 4 oil immersion objective .",
+                "output": "cells <Anatomy>",
+                "explanation": "Input describes few detais about the one observation using microscope and there is only one anatomy in the given input, i.e., cells."
+            },
+            {
+                "input": "Click here for file The right eye of a 50 - year - old patient with severe hypertension at the first visit .",
+                "output": "right eye <Anatomy>",
+                "explanation": "Input describes the severe hypertension in the right eye for the 50 year old patient and it contains only one anatomy, i.e., right eye."
+            }
+        ],
+        "Prompt": "Given an input, return all the named entities and their corresponding type."
+    },
+    "BC2GM": {
+        "Definition:": "In this task, you are given a small paragraph, and your task is to identify all the named entities (particular gene entity) from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "Joys and F . 2 cases of type II tyrosinosis ( Richner - Hanhart syndrome ) Following conditioning , a single coat of adhesive was applied and light - cured . The East African dik - dik antelope represents a miniature model ruminant for comparative studies . Evaluation of automatic blood cell counters . Auditory threshold shifts , as measured by the auditory evoked brainstem response , were measured at 2 , 4 , 8 , 12 , 16 , 20 and 24 kHz . A portion of Region II also resembles part of the human c - jun oncoprotein ' s leucine zipper , which in turn , has been demonstrated to be the heterodimerization site between the jun and fos oncoproteins .",
+                "output": "c - jun <GENE>, jun <GENE>, fos oncoproteins <GENE>",
+                "explanation": "Three gene entities are there in the input. Hence, the generated output is a comma separated three entities with type GENE mentioned in <>."
+            },
+            {
+                "input": "Of the 117 patients ( out of the 136 ) with serologic evidence of chronic thyroiditis who could be studied , eight ( 7 % ) had hyperthyroidism and 45 ( 38 % ) were hypothyroid . All other normal and transformed lymphoid and nonlymphoid cell lines and normal tissues were negative for PANG expression except for the brain , wherein unique 4 . 0 - and 6 . 1 - kb transcripts were detected .",
+                "output": "PANG <GENE>",
+                "explanation": "From the given small paragraph, we can see that \"PANG\" is a gene entity. Hence, the generated output is right."
+            }
+        ],
+        "Prompt": "Given an input, return all the named entities and their corresponding type."
+    },
+    "BC4CHEMD": {
+        "Definition:": "In this task, you are given a small paragraph as input, and your task is to identify all the named entities (particular chemical entity) from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "Fish consumption during child bearing age : a quantitative risk - benefit analysis on neurodevelopment . The fish ingredient N3 - docosahexaenoic acid 22 : 6 n - 3 ( DHA ) stimulates brain development.",
+                "output": "N3 - docosahexaenoic acid <Chemical>, DHA <Chemical>",
+                "explanation": "In the given input text, there are two chemical entities, i.e., N3 - docosahexaenoic acid and DHA. The generated output should be in entity <type_of_entity> format, hence, the output is 'N3 - docosahexaenoic acid <Chemical>, DHA <Chemical>'."
+            }
+        ],
+        "Prompt": "Given an input, generate all chemical named entities."
+    },
+    "BC5CDR": {
+        "Definition:": "In this task, you are given a small paragraph, your task is to identify all the named entities for the chemical and disease from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": " Circumstances leading to this event and the mechanisms enabling a neuromuscular blockade to occur , following the administration of a small dose of relaxant , are discussed .",
+                "output": "neuromuscular blockade <Disease>",
+                "explanation": "Input indicates that circumstances leading to some event and the mechanism is responsible for the neuromuscular blockade, which also suggests that neuromuscular blockade is the named entity (name of the disease)."
+            },
+            {
+                "input": "DISCUSSION : To our knowledge , this is the first reported case of venlafaxine overdose that resulted in a generalized seizure .",
+                "output": "venlafaxine <Chemical>, overdose <Disease>, seizure <Disease>",
+                "explanation": "Input talks about one report and its result. It says that overdose of venlafaxine causes the seizure. Hence, it is clear that venlafaxine is name of chemical and overdose and seizure is disease."
+            }
+        ],
+        "Prompt": "Given an input, return all the named entities and their corresponding type."
+    },
+    "BioNLP11EPI": {
+        "Definition:": "In this task, you are given a context and you need to extract the protein entities from the context. In your answer, each protein is followed by <Protein>.",
+        "Examples": [
+            {
+                "input": "These results suggest that transcription of Cx32 and Cx43 in hepatic cells is controlled by promoter methylation and by cell - specific transcription factors .",
+                "output": "Cx32 <Protein>, Cx43 <Protein>",
+                "explanation": "Cx32 and Cx43 are both protein entities in the context, and since Cx32 appears first, you extract this entity first."
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract the protein entities."
+    },
+    "BioNLP11ID": {
+        "Definition:": "In this task, you are given a context and you need to extract the Chemical, Organism, Protein, Regulon-operon entities from the context. In your answer, each entity is followed by the corresponding category.",
+        "Examples": [
+            {
+                "input": "If so , we reasoned that SrcA should contribute to animal colonization because the SPI - 2 T3SS is essential for host infection .",
+                "output": "SrcA <Protein>, host <Organism>",
+                "explanation": "SrcA is a protein and host is organism in the context, and since SrcA appears first, you extract this entity first."
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract any entity that belongs to Chemical, Organism, Protein, Regulon-operon."
+    },
+    "BioNLP13CG": {
+        "Definition:": "In this task, you are given a context and you need to extract the Amino_acid, Anatomical_system,Cancer, Cell, Cellular_component, Developing_anatomical_structure, Gene_or_gene_product, Immaterial_anatomical_entity, Multi-tissue_structure, Organ, Organism, Organism_subdivision, Organism_substance, Pathological_formation, Simple_chemical, and Tissue entities from the context. In your answer, each entity is followed by the corresponding category.",
+        "Examples": [
+            {
+                "input": "Protein up - regulation of HER2 in the epithelium with metaplasia or carcinoma in situ was not accompanied by HER2 gene amplification .",
+                "output": "HER2 <Gene_or_gene_product>, epithelium <Tissue>, metaplasia <Cancer>, carcinoma <Cancer>, HER2 <Gene_or_gene_product>",
+                "explanation": "HER2 is Gene_or_gene_product, epithelium is Tissue, metaplasia is cancer, carcinoma is cancer, HER2 is Gene_or_gene_product. There are can be more than one entity belong to one category and one entity can appear more than one time. "
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract any entity that belongs to Amino_acid, Anatomical_system, Cancer, Cell, Cellular_component, Developing_anatomical_structure, Gene_or_gene_product, Immaterial_anatomical_entity, Multi-tissue_structure, Organ, Organism, Organism_subdivision, Organism_substance, Pathological_formation, Simple_chemical, and Tissue."
+    },
+    "BioNLP13GE": {
+        "Definition:": "In this task, you are given a context and you need to extract the protein entities from the context. In your answer, each protein is followed by <Protein>.",
+        "Examples": [
+            {
+                "input": "Whereas promoter mutations or structural rearrangements could be excluded as a cause of altered IRF - 4 expression in hematopoietic cells , the IRF - 4 promoter methylation status was found to significantly influence IRF - 4 transcription .",
+                "output": "IRF - 4 <Protein>, IRF - 4 <Protein>, IRF - 4 <Protein>",
+                "explanation": "IRF - 4 is a protein and since in the context there are three IRF - 4, so in your answer you need to find all of them."
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract the protein entities."
+    },
+    "BioNLP13PC": {
+        "Definition:": "In this task, you are given a context and you need to extract the Cellular_component,Complex,Gene_or_gene_product, and Simple_chemical entities from the context. In your answer, each entity is followed by the corresponding category.",
+        "Examples": [
+            {
+                "input": "We also summarized the biochemical properties of a novel protein phosphatase , which we isolated with the new methods and designated as CaMK phosphatase ( CaMKP ) , and its homologue .",
+                "output": "CaMK phosphatase <Gene_or_gene_product>, CaMKP <Gene_or_gene_product>",
+                "explanation": "CaMK phosphatase is Gene_or_gene_product, and since in the context there are two CaMK, so in your answer you need to find both of them."
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract any entity that belongs to Cellular_component, Complex, Gene_or_gene_product, and Simple_chemical."
+    },
+    "BioNLP_09": {
+        "Definition:": "In this task, you are given a context and you need to extract the protein entities from the context. In your answer, each protein is followed by <Protein>.",
+        "Examples": [
+            {
+                "input": "However , reintroduction of a functional 5 - LOX system in these cells allowed ROI production and 5 - LOX - dependent NF - kappaB activation .",
+                "output": "5 - LOX <Protein>, 5 - LOX <Protein>",
+                "explanation": "5 - LOX is a protein and since in the context there are two 5 - LOX , so in your answer you need to find both of them."
+            }
+        ],
+        "Prompt": "You are given a context and you need to extract the protein entities."
+    },
+    "CRAFT": {
+        "Definition:": "In this task, you are given a small paragraph, your task is to identify all the named entities from the given input and also provide one of the following type for each entities: (1) CHEBI, (2) CL, (3) GGP, (4) GO, (5) NCBITaxon, (6) SO, and (7) Taxon. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "Conversely , down - regulation of beta - catenin signaling ( through Lef1 knock - out , ectopic expression of Wnt inhibitor Dkk1 or conditional deletion of beta - catenin in epidermis ) results in loss of vibrissae and some pelage follicles in mice [ 28 - 30 ].",
+                "output": "beta - catenin <GGP>, Lef1 <GGP>, Dkk1 <GGP>, deletion <SO>, beta - catenin <GGP>, mice <Taxon>, mice <NCBITaxon>",
+                "explanation": "In the given input text, there are seven entities: beta - catenin, Lef1, Dkk1, deletion, beta - catenin, mice, and mice. From these seven entities, both beta - cateni, Lef1, and Dkk1 have entity type GGP, deletion has entity type SO, and one of the mice has entity type Taxon and other mice has NCBITaxon. Hence, the generated output is 'beta - catenin <GGP>, Lef1 <GGP>, Dkk1 <GGP>, deletion <SO>, beta - catenin <GGP>, mice <Taxon>, mice <NCBITaxon>."
+            }
+        ],
+        "Prompt": "Given a text as input, your task is to identify all the named entities from the given input and also provide one of the following type for each entities: (1) CHEBI, (2) CL, (3) GGP, (4) GO, (5) NCBITaxon, (6) SO, and (7) Taxon."
+    },
+    "Ex-PTM": {
+        "Definition:": "In this task, you are given a small paragraph as input, and your task is to identify all the named entities (particular protein entity) from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": " Recombinant human insulin - like growth factor 1 ( hIGF - 1 ) was reacted with 4 - azidosalicylic acid ( Asa ) to synthesize photoreactive IGF - 1 derivatives.",
+                "output": "insulin - like growth factor 1 <Protein>, hIGF - 1 <Protein>, IGF - 1 <Protein>",
+                "explanation": "In the given input text, there are three protein entities, i.e., insulin - like growth factor 1, hIGF - 1, and IGF - 1. The generated output should be in entity <type_of_entity> format, hence, the output is 'insulin - like growth factor 1 <Protein>, hIGF - 1 <Protein>, IGF - 1 <Protein>'."
+            }
+        ],
+        "Prompt": "Given an input, generate all protein named entities."
+    },
+    "JNLPBA": {
+        "Definition:": "In this task, you are given a small paragraph, your task is to identify all the named entities from the given input and also provide one of the following type for each entities: (1) DNA, (2) RNA, (3) cell_line, (4) cell_type, and (5) protein. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "fusion complementary DNA in the T cell line HSB-2 elucidates a provocative mechanism for the disruption of the putative hematopoietic transcription factor SCL.",
+                "output": "fusion complementary DNA <DNA>, T cell line HSB-2 <cell_line>, hematopoietic transcription factor <protein>, SCL <protein>",
+                "explanation": "In the given input text, there are four entities: fusion complementary DNA, T cell line HSB-2, hematopoietic transcription factor, and SCL. From these four entities, fusion complementary DNA has entity type DNA, T cell line HSB-2 has entity type cell_line, and hematopoietic transcription factor and SCL are protein type entities. Hence, the generated output is 'fusion complementary DNA <DNA>, T cell line HSB-2 <cell_line>, hematopoietic transcription factor <protein>, SCL <protein>'."
+            }
+        ],
+        "Prompt": "Given a text as input, your task is to identify all the named entities from the given input and also provide one of the following type for each entities: (1) DNA, (2) RNA, (3) cell_line, (4) cell_type, and (5) protein."
+    },
+    "NCBI": {
+        "Definition:": "In this task, you are given a small paragraph, your task is to identify all the named entities from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "We have confirmed that germline mutations in the CDH1 gene cause familial gastric cancer in non - Maori populations .",
+                "output": "familial gastric cancer <Disease>",
+                "explanation": "Input represents the research about germline mutations in the CDH1 gene is the reason behind familial gastric cancer. This also indicates that familial gastric is the name of cancer."
+            },
+            {
+                "input": "Genetic hemochromatosis ( GH ) is believed to be a disease restricted to those of European ancestry .",
+                "output": "Genetic hemochromatosis <Disease>, GH <Disease>",
+                "explanation": "Input talks about one disease of the European ancestry and hence Genetic hemochromatosis is the disease name as well as its acronym GH."
+            },
+            {
+                "input": "RESULTS Three patients with adult - onset cerebral ALD were identified as having large genomic rearrangements .",
+                "output": "cerebral ALD <Disease>",
+                "explanation": "Input indicates the results that three patients who have one kind of disease also shows other similar symptoms. Where cerebral ALD is the name of the disease."
+            }
+        ],
+        "Prompt": "Given an input, return all the named entities and their corresponding type." 
+    },
+    "linnaeus": {
+        "Definition:": "In this task, you are given a small paragraph as input, and your task is to identify all the named entities (particular species entity) from the given input and also provide type of the each entity. Generate the output in this format: entity1 <type_of_entity1>, entity2 <type_of_entity2>.",
+        "Examples": [
+            {
+                "input": "Gene expression studies in isolated mitochondria : Solanum tuberosum rps10 is recognized by cognate potato but not by the transcription , splicing and editing machinery of wheat mitochondria",
+                "output": "Solanum tuberosum <Species>, potato <Species>, wheat <Species>",
+                "explanation": "In the given input text, there are three protein entities, i.e., Solanum tuberosum, potato, and wheat. The generated output should be in entity <type_of_entity> format, hence, the output is 'Solanum tuberosum <Species>, potato <Species>, wheat <Species>'."
+            }
+        ],
+        "Prompt": "Given an input, generate all species named entities."
+    },
+    "POS_Genia": {
+        "Definition:": "In this task, you are given a sentence as input. Your task is to return the Part-Of-Speech (POS) tag for each of the words in the input. POS tag is a label or description that represents the part of speech and sometimes a category of words related to grammatical properties. The list of part-of-speech tags - CC: Coordinating conjunction; CD: Cardinal number; DT: Determiner; EX: Existential there; FW: Foreign word; IN: Preposition or subordinating conjunction; JJ: Adjective; JJR: Adjective, comparative; JJS: Adjective, superlative; LS List item marker; MD: Modal; NN: Noun, singular or mass; NNS: Noun, plural; NNP: Proper noun, singular; NNPS: Proper noun, plural; PDT: Predeterminer; POS: Possessive ending; PRP: Personal pronoun; PRP$: PRPP Personal pronoun, possessive; RB: Adverb; RBR: Adverb, comparative; RBS: Adverb, superlative; RP: Particle; SYM: Symbol; TO: to; VB: Verb, base form; VBD: Verb, past tense; VBG: Verb, present participle or gerund; VBN: Verb, past participle; VBP: Verb, non-3rd person singular present; VBZ: Verb, 3rd person singular present; WDT: Wh-determiner; WP: Wh-pronoun; WP$: WPP Wh-pronoun, possessive; WRB: Wh-adverb; \".\": Period; \",\": Comma; \":\": Colon; \"(\": LRB Left one of any paired symbols used as brackets: (, [, {, <; \")\": RRB Right one of any paired symbols used as brackets: ), ], }, >; \"''\" Single Quotes; '``' Double backticks.",
+        "Examples": [
+            {
+                "input": "Binding sites were mapped for each factor .",
+                "output": "Binding <VBG> sites <NNS> were <VBD> mapped <VBN> for <IN> each <DT> factor <NN> . <.>",
+                "explanation": "The output generates the POS tag for each of the words in the input. Also, all the generated tags are correct and written between < and >. All the verbs are generated correctly with their corresponding grammar form, i.e., binding is a present participle (VBG), were is past tense (VBD), and mapped is a past participle (VBN). With this, nouns are also predicted correct, i.e., factor is a noun in singular form (NN) and sites is a noun in a plural form (NNS). In addition, for is a preposition (IN) and each is the determiner (DT). Also, POS tag is generated for dot(.)."
+            },
+            {
+                "input": "However , the mechanism ( s ) by which priming occurs is poorly defined .",
+                "output": "However <RB> , <,> the <DT> mechanism <NN> ( <(> s <NNS> ) <)> by <IN> which <WDT> priming <NN> occurs <VBZ> is <VBZ> poorly <RB> defined <VBN> . <.>",
+                "explanation": "For the symbols (, and .), output predicts POS tag for each of them correctly which are symbols themselves. Input has different grammar forms: 1) However and poorly are adverbs,  hence prediction corresponding to them is <RB>, 2)  occurs and is are 3rd person singular present, hence <VBZ> is predicted corresponding to it, 3) <VBN> is also predicted for past participle verb which is defined, 4) For nouns like priming and mechanism are labeled as <NN>, and 5) plural nouns have <NNS> tag. Other grammar forms are determiner <DT>, the; wh-determiner <WDT>, which; preposition <IN>, by.]"
+            }
+        ],
+        "Prompt": "Given an input, provide a Part-Of-Speech tag for each word of the input sentence."
+    },
+    "BioASQ-8b_factoid": {
+        "Definition:": "In this task, you are given a context and a question. you need to find the answer span in the given context. The question is facoid based question. ",
+        "Examples": [
+            {
+                "input": "Context: Mutations in DVL1 cause an osteosclerotic form of Robinow syndrome. Here, we identified de novo frameshift mutations in DVL1, a mediator of both canonical and non-canonical Wnt signaling, as the cause of RS-OS, an RS subtype involving osteosclerosis, in three unrelated individuals. DVL1 frameshift mutations clustering in the penultimate exon cause autosomal-dominant Robinow syndrome. argeted Sanger sequencing in additional subjects with DRS uncovered DVL1 exon 14 mutations in five individuals, including a pair of monozygotic twins. \n Question: Which syndrome is associated with mutant DVL1?",
+                "output": "Mutations in DVL1 cause an osteosclerotic form of Robinow syndrome.",
+                "explanation": "To answer the question, we need to find the cause of mutation in DVL1 and the cause is some syndrome, thus the answer is Mutations in DVL1 cause an osteosclerotic form of Robinow syndrome. "
+            }
+        ],
+        "Prompt": "Answer the question based on the context, your answer is a span in the context."
+    },
+    "BioASQ-8b_list": {
+        "Definition:": "In this task, you are given a context and a question. You need to find the answer to the question in the given context. The question ask you to list something, and the number of something is given.",
+        "Examples": [
+            {
+                "input": "Context: Novel AChE inhibitors with oral antisense oligonucleotides have been developed and preliminary results appear to be promising. Except for one small and inconclusive trial of intranasal neostigmine, no randomised controlled trial has been conducted on the use of acetylcholinesterase inhibitors in myasthenia gravis. Response to acetylcholinesterase inhibitors in observational studies is so clear that a randomised controlled trial depriving participants in the placebo arm of treatment would be difficult to justify.  Current guidelines and recommendations for MG treatment are based largely on clinical experience, retrospective analyses and expert consensus. Available therapies include oral acetylcholinesterase (AChE) inhibitors for symptomatic treatment, and short- and long-term disease-modifying treatments. Pyridostigmine has been used as a treatment for MG for over 50 years and is generally considered safe.  \n Question: Which acetylcholinesterase inhibitors are used for treatment of myasthenia gravis?",
+                "output": "neostigmine, pyridostigmine",
+                "explanation": " The question ask about the list of inhibitors that can treat myasthenia gravis (MG), from the sentence: Except for one small and inconclusive trial of intranasal neostigmine... and  Pyridostigmine has been used as a treatment for MG for over 50..., we know two inhibitors: neostigmine and pyridostigmine"
+            }
+        ],
+        "Prompt": "Given a context and question, generate a list of answers."
+    },
+    "BioASQ-8b_yesno": {
+        "Definition:": "In this task, you are given a context and a question. You need to answer the question by \"Yes\" or \"No\" based on the context.",
+        "Examples": [
+            {
+                "input": "Context: Papilins are extracellular matrix proteins Papilin is an extracellular matrix glycoprotein   Collagen IV, laminin, glutactin, papilin, and other extracellular matrix proteins were made primarily by hemocytes and were secreted into the medium.  A sulfated glycoprotein was isolated from the culture media of Drosophila Kc cells and named papilin. \n Question: Is the protein Papilin secreted?",
+                "output": "yes",
+                "explanation": "From this sentence: papilin, and other extracellular matrix proteins were made primarily by hemocytes and were secreted into the medium, we know that Papilin is secreted. Thus the answer is Yes."
+            },
+            {
+                "input": "Context: Abnormal dosage of ultraconserved elements is highly disfavored in healthy cells but not cancer cells. We begin by showing that depletion for UCEs characterizes the most recent large-scale human CNV datasets and then find that even newly formed de novo CNVs, which have passed through meiosis at most once, are significantly depleted for UCEs. In striking contrast, CNVs arising specifically in cancer cells are, as a rule, not depleted for UCEs and can even become significantly enriched. \n Question: Is the abnormal dosage of ultraconserved elements disfavored in cancer cells?",
+                "output": "no",
+                "explanation": "From this sentence: Abnormal dosage of ultraconserved elements is highly disfavored in healthy cells but not cancer cells, we know that abnormal dosage of ultraconserved elements is not disfavored in cancer cells. Thus the answer is No."
+            }
+        ],
+        "Prompt": "Answer the question based on the context, your answer is either yes or no."
+    },
+    "PubMed": {
+        "Definition:": "In this task, you are given multiple contexts and a question. You should find information from multiple contexts, and summarize your answer to the question.",
+        "Examples": [
+            {
+                "input": "Context1: Complex regional pain syndrome type I is treated symptomatically. A protective effect of vitamin C (ascorbic acid) has been reported previously. A dose-response study was designed to evaluate its effect in patients with wrist fractures. \n Context2: In a double-blind, prospective, multicenter trial, 416 patients with 427 wrist fractures were randomly allocated to treatment with placebo or treatment with 200, 500, or 1500 mg of vitamin C daily for fifty days. The effect of gender, age, fracture type, and cast-related complaints on the occurrence of complex regional pain syndrome was analyzed. \n Context3: Three hundred and seventeen patients with 328 fractures were randomized to receive vitamin C, and ninety-nine patients with ninety-nine fractures were randomized to receive a placebo. The prevalence of complex regional pain syndrome was 2.4% (eight of 328) in the vitamin C group and 10.1% (ten of ninety-nine) in the placebo group (p=0.002); all of the affected patients were elderly women. Analysis of the different doses of vitamin C showed that the prevalence of complex regional pain syndrome was 4.2% (four of ninety-six) in the 200-mg group (relative risk, 0.41; 95% confidence interval, 0.13 to 1.27), 1.8% (two of 114) in the 500-mg group (relative risk, 0.17; 95% confidence interval, 0.04 to 0.77), and 1.7% (two of 118) in the 1500-mg group (relative risk, 0.17; 95% confidence interval, 0.04 to 0.75). Early cast-related complaints predicted the development of complex regional pain syndrome (relative risk, 5.35; 95% confidence interval, 2.13 to 13.42). \n Question: Can vitamin C prevent complex regional pain syndrome in patients with wrist fractures?",
+                "output": "Vitamin C reduces the prevalence of complex regional pain syndrome after wrist fractures. A daily dose of 500 mg for fifty days is recommended.",
+                "explanation": "The question ask whether or not vitamin C prevent complex regional pain syndrome in patients with wrist fractures, first you find the sentences that talk about complex regional pain syndrome and  vitamin C, and since the context show many information about dosage, in your answer, you can also give information about dosage."
+            }
+        ],
+        "Prompt": "You are given multiple contexts and a question, answer the question using information from multiple contexts."
+    },
+    "Chemprot": {
+        "Definition:": "The goal of this task is to generate a relationship between chemical and protein entities. In this task, you are given a combination of Pubmed title and abstract as context, two entities as entity_1 and entity_2. For the given entities, your task is to generate one of these five relations: CPR:3 (activation), CPR:4 (inhibition), CPR:5 (agonist), CPR:6 (antagonist) and CPR:9 (substrate).",
+        "Examples": [
+            {
+                "input": "Context: Use of angiotensin (Ang) II AT1 receptor antagonists for treatment of hypertension is rapidly increasing, yet direct comparisons of the relative efficacy of antagonists to block the renin-angiotensin system in humans are lacking. In this study, the Ang II receptor blockade induced by the recommended starting dose of 3 antagonists was evaluated in normotensive subjects in a double-blind, placebo-controlled, randomized, 4-way crossover study. At 1-week intervals, 12 subjects received a single dose of losartan (50 mg), valsartan (80 mg), irbesartan (150 mg), or placebo. Blockade of the renin-angiotensin system was assessed before and 4, 24, and 30 hours after drug intake by 3 independent methods: inhibition of the blood pressure response to exogenous Ang II, in vitro Ang II receptor assay, and reactive changes in plasma Ang II levels. At 4 hours, losartan blocked 43% of the Ang II-induced systolic blood pressure increase; valsartan, 51%; and irbesartan, 88% (P<0.01 between drugs). The effect of each drug declined with time. At 24 hours, a residual effect was found with all 3 drugs, but at 30 hours, only irbesartan induced a marked, significant blockade versus placebo. Similar results were obtained when Ang II receptor blockade was assessed with an in vitro receptor assay and by the reactive rise in plasma Ang II levels. This study thus demonstrates that the first administration of the recommended starting dose of irbesartan induces a greater and longer lasting Ang II receptor blockade than that of valsartan and losartan in normotensive subjects. entity_1: irbesartan entity_2: Ang II",
+                "output": "CPR:4",
+                "explanation": "From the context, we can see that the dose of irbesartan causes inhibition for Ang II protein, hence generated relation inhibition (CPR:4) is right."
+            }
+        ],
+        "Prompt": "Given context and two entities (i.e., entity_1 and entity_2), generate one of these five chemical-protein relations: CPR:3 (activation), CPR:4 (inhibition), CPR:5 (agonist), CPR:6 (antagonist) and CPR:9 (substrate)."
+    },
+    "DDI": {
+        "Definition:": "In this task, you are given a sentence as context and two drug names from the given context. Your job is to classify into two categories: (1) \"true\" if there exists a Drug-drug interactions (DDIs) between the given two drugs, and (2) \"false\" otherwise. Drug-drug interactions (DDIs) occur when two drugs are co-administered, and thus the effects of the combined drugs can be increased, weakened, or harmful.",
+        "Examples": [
+            {
+                "input": "Context: Clozapine may potentiate the hypotensive effects of antihypertensive drugs and the anticholinergic effects of atropine-type drugs. Drug_1: Clozapine Drug_2: atropine",
+                "output": "true",
+                "explanation": "There is an effect of Clozapine drug on atropine-type drugs, so we can say that there exist Drug-drug interactions (DDIs). Hence, the generated label is \"true\"."
+            },
+            {
+                "input": "Context: Antiarrhythmics: Other antiarrhythmic drugs, such as quinidine, procainamide, disopyramide, and phenytoin, have been used concurrently with amiodarone. Drug_1: Antiarrhythmics Drug_2: phenytoin",
+                "output": "false",
+                "explanation": "Phenytoin is one of the antiarrhythmic drugs, so there is no Drug-drug interactions (DDIs). Hence, generated answer is \"false\". However, we can see that there exist DDI between phenytoin and amiodarone."
+            }
+        ],
+        "Prompt": "Given a sentence and two drug names, generated \"true\" if there exist Drug-Drug Interactions (DDIs) between given drugs, \"false\" otherwise."
+    },
+    "Medical_Drugs": {
+        "Definition:": "In this task, you are given a sentence (Sentence), a drug (Drug), and options, separated by \n. Your task is to identify the type of the role of the drug in the given sentence from the given options. If the use of drug indicates a positive effect in the given sentence then return \"Positive\"; If the use of drug indicates a negative effect in the given sentence then return \"Negative\"; and If the use of the drug does not indicate a specific role in the given sentence then return \"Neutral\".",
+        "Examples": [
+            {
+                "input": "Thank you so much! I really appreciate you reading. I’ll tell you the one thing that has improved notably since my second full dose of Ocrevus has been the fatigue. I’m so much better. Still not bursting with energy, don’t get me wrong, but much less muddled and draggy day to day which is huge to me. That feeling of being dragged down every minute of every day really puts a damper on pretty much everything. \n Drug: ocrevus \n Option1: Neutral Option2: Positive Option3: Negative",
+                "output": "Negative",
+                "explanation": "Input indicates that ocrevus does not improve the condition of the patient. In fact, the patient is still feeling tired during the whole day and which affect many other things. Hence, the answer is negative."
+            },
+            {
+                "input": "@nutshell88 , the Patient Information Leaflet for Gilenya doesn’t suggest any adverse interactions. \n Drug: gilenya \n Option1: Neutral Option2: Positive Option3: Negative",
+                "output": "Positive",
+                "explanation": "Input directly mention that gilenya has no side effects or any adverse effect on the patient. Hence, the output is positive."
+            },
+            {
+                "input": "After 41 yrs of Crohn's & being non responsive to all treatments, including biologics, I've been on Stelara now for 16 weeks, & I'm starting to see a real difference !! I was reluctant to believe that it would work but, I'm ecstatic that something may actually turn things around for me. Best yet, NO Side Effects !! \n Drug: stelara \n Option1: Neutral Option2: Positive Option3: Negative",
+                "output": "Neutral",
+                "explanation": "Input indicates that stelara does not have any positive as well as a negative effect on the patient. The patient expected that stelara may help to improve his/her condition, however, there is no such improvement yet. With this, there is no side effects of this drug. Hence, output is neutral."
+            }
+        ],
+        "Prompt": "Given an input sentence and drug, return the role of the drug in the given sentence from the given sentence."
+    },
+    "Accelerometer": {
+        "Definition:": "In this task, you are given the text of title and abstract of the PubMed article as context. Your job is to classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to children ages 1-18 years, (2) Reports a use of accelerometers in a validation experiment, (3) Reports different accelerometers in the study, and (4) Reports randomized and non-randomized comparative studies.",
+        "Examples": [
+            {
+                "input": "Discrepancies in accelerometer-measured physical activity in children due to cut-point non-equivalence and placement site This study examined dissonance in physical activity (PA) between two youth-specific hip-derived intensity cut-points for the Actiwatch (AW), and compared PA between hip and wrist placements using site-specific cut-points. Twenty-four children aged 11.2 +/- 0.5 years wore the AW on the right hip and non-dominant wrist during a typical school day. Minutes of sedentary behaviour and vigorous activity were greater using Puyau et al. (2002) cut-points, but light, moderate, and moderate-to-vigorous (MVPA) were greater when derived using Puyau et al. (2004) cut-points (P < 0.01). Total hip activity counts were lower than wrist. Sedentary minutes were greater at the hip, but minutes of light, vigorous and MVPA were lower (P < 0.01). Moderate minutes were greater at the hip, but differed only when applying the Puyau et al. (2004) cut-points (P < 0.01). In conclusion, data comparisons between two hip derived AW cut-points and between hip and wrist data are inappropriate. Future researchers using the AW at the hip should present data reduced using both published cut-points. As hip and wrist data differ, the wrist placement is preferable as it will likely increase children's compliance to monitoring protocols due to reduced obtrusiveness compared to the hip. Option_1: Include, Option_2: Exclude.",
+                "output": "Include",
+                "explanation": "This article satisfies all four given criteria, hence generated label is 'Include'."
+            },
+            {
+                "input": "Tracking the commute home from school utilizing GPS and heart rate monitoring: establishing the contribution to free-living physical activity BACKGROUND: Active school commuting is widely regarded as a key opportunity for youth to participate in physical activity (PA). However, the accurate measurement of the commute home from school and its contribution to total free-living moderate-to-vigorous PA (MVPA) is relatively unexplored. Option_1: Include, Option_2: Exclude.",
+                "output": "Exclude",
+                "explanation": "This article does not mention accelerometer, it is not a randomized study, and does not report validation experiments. Hence violating the criteria (2), (3) and (4). So generated label is 'Exclude'."
+            }
+        ],
+        "Prompt": "Given the text of title and abstract of the PubMed article as context, classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to children ages 1-18 years, (2) Reports a use of accelerometers in a validation experiment, (3) Reports different accelerometers in the study, and (4) Reports randomized and non-randomized comparative studies."
+    },
+    "Acromegaly": {
+        "Definition:": "In this task, you are given the text of title and abstract of the PubMed article as context. Your job is to classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Mentions any type of observational and longitudinal studies, (2) Reports randomized and non-randomized; case-control; case series; and case reports, (3) Any age who reported receiving medical treatment of acromegaly as a first line of treatment, (4) Reports medical or surgical treatment, and (5) Mentions patients achieving biochemical control.",
+        "Examples": [
+            {
+                "input": "Therapeutic management in 154 acromegalic patients] Acromegaly is a chronic, invalidating disease due in over 95% of cases to a growth hormone (GH) secreting pituitary adenoma. Its clinical manifestations are associated to local complications related to the tumor growth and/or to the metabolic consequences of GH excess. We report here our experience on 154 acromegalic patients. Surgical remission rate using stringent biochemical criteria was 32%, a figure relatively low due to the great number of patients bearing macroadenomas with invasive complications. Primary or adjuvant radiotherapy was able to obtain normalization of biochemical parameters in as much as 65.4% of treated patients. In only 14.0% of acromegalics drug therapy with dopaminergic agents was effective in controlling the disease. By contrast, somatostatinergic analogues were more effective, obtaining a clinical and biochemical remission in 45.7% of the patients. In summary, multimodal therapy of acromegaly can lead to a global safe control of the disease in 55.2% of the cases. The ongoing development of new drugs represents promising alternatives in the management of this disabling condition. Option_1: Include, Option_2: Exclude.",
+                "output": "Include",
+                "explanation": "This article satisfies all five given criteria, hence generated label is 'Include'."
+            },
+            {
+                "input": "McCune-Albright syndrome and acromegaly: effects of hypothalamopituitary radiotherapy and/or pegvisomant in somatostatin analog-resistant patients BACKGROUND: Acromegaly, which may be present in patients with McCune-Albright syndrome (MCAS), in association with cafe-au-lait spots, precocious puberty, and fibrous dysplasia, is often difficult to treat surgically because skull base bone dysplasia prevents the removal of the pituitary adenoma. Somatostatin analogs (SAs) generally give only partial responses. The use of radiotherapy (RT) is controversial because of a possible risk of bone sarcomatous transformation. Option_1: Include, Option_2: Exclude.",
+                "output": "Exclude",
+                "explanation": "This article does not satisfying all the inclusion criteria. So generated label is 'Exclude'."
+            }
+        ],
+        "Prompt": "Given the text of title and abstract of the PubMed article as context, classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Mentions any type of observational and longitudinal studies, (2) Reports randomized and non-randomized; case-control; case series; and case reports, (3) Any age who reported receiving medical treatment of acromegaly as a first line of treatment, (4) Reports medical or surgical treatment, and (5) Mentions patients achieving biochemical control."
+    },
+    "COVID": {
+        "Definition:": "In this task, you are given the text of title and abstract of the PubMed article as context. Your job is to classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to adults 18 years or older, (2) Mentions patients with ARDS (acute respiratory distress syndrome), (3) Reports cell therapy transplantation, (4) Reports usual and supportive care only, no treatment, and (5) Any study design including case reports.",
+        "Examples": [
+            {
+                "input": "18th Annual Meeting of the International Society for Stem Cell Research (ISSCR) The Annual Meeting of the International Society for Stem Cell Research (ISSCR) brought together experts from across the world in the field of stem cell therapy research and regenerative medicine. Due to the COVID-19 pandemic, the meeting, due to take place in Boston, was transformed into a virtual event, but still managed to achieve its aim of providing updates on all areas of stem cell science and regenerative medicine in oral and poster presentations provided online and on-demand to attendees. This report covers some of the highlights from this virtual meeting.Copyright © 2020 Clarivate Analytics. Option_1: Include, Option_2: Exclude.",
+                "output": "Include",
+                "explanation": "This article satisfies all five given criteria, hence generated label is 'Include'."
+            },
+            {
+                "input": "Introductions to the Community: Early-Career Researchers in the Time of COVID-19 COVID-19 has unfortunately halted lab work, conferences, and in-person networking, which is especially detrimental to researchers just starting their labs. Through social media and our reviewer networks, we met some early-career stem cell investigators impacted by the closures. Here, they introduce themselves and their research to our readers. Copyright © 2020 Elsevier Inc. All rights reserved. Option_1: Include, Option_2: Exclude.",
+                "output": "Exclude",
+                "explanation": "This article does not satisfying all the inclusion criteria. So generated label is 'Exclude'."
+            }
+        ],
+        "Prompt": "Given the text of title and abstract of the PubMed article as context, classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to adults 18 years or older, (2) Mentions patients with ARDS (acute respiratory distress syndrome), (3) Reports cell therapy transplantation, (4) Reports usual and supportive care only, no treatment, and (5) Any study design including case reports."
+    },
+    "Cooking": {
+        "Definition:": "In this task, you are given the text of title and abstract of the PubMed article as context. Your job is to classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to any person, adult or child, healthy or with comorbidity, (2) Reports cooking class/culinary intervention delivered by anyone (chef, dietitian, etc.), and (3) Reports a comparison with any control group.",
+        "Examples": [
+            {
+                "input": "A program of nutritional education in schools reduced the prevalence of iron deficiency in students The objective was to determine the prevalence of iron, folates and retinol deficiencies in school children and to evaluate the changes after an intervention of nutritional education. The project was developed in 17 schools. The sample included 1,301 children (678 males and 623 females). A subsample of 480 individuals, was randomly selected for drawing blood for biochemical determinations before and after the intervention of nutritional education, which included in each school: written pre and post-intervention tests, 6 workshops, 2 participative talks, 5 game activities, 1 cooking course and 1 recipe contest. Anthropometrical and biochemical determinations included weight, height, body-mass index, nutritional status, hematocrit, serum ferritin, retinol and folate concentrations. There was high prevalence of iron (25%), folates (75%) and vitamin A (43%) deficiencies in school children, with a low consumption of fruit and vegetables, high consumption of soft drinks and snacks and almost no physical activity. The nutritional education intervention produced a significant reduction in iron deficiency prevalence (25 to 14%), and showed no effect on vitamin A and folates deficiencies. There was a slight improvement in nutritional status. This study shows, through biochemical determinations, that nutritional education initiatives and programs have an impact improving nutritional health in school children. Option_1: Include, Option_2: Exclude.",
+                "output": "Include",
+                "explanation": "This article satisfies all three given criteria, hence generated label is 'Include'."
+            },
+            {
+                "input": "Environmental influences on food security in high-income countries Food security is a fundamental human right yet many people are food insecure, even in high-income countries. Reviewed here is the evidence for the physical, economic, sociocultural, and political environmental influences on household food security in high-income countries. The literature was evaluated using the ANGELO framework, which is a lens developed for understanding the environmental factors underpinning the obesity pandemic. A review of the literature identified 78 articles, which mostly reported on cross-sectional or qualitative studies. These studies identified a wide range of factors associated with food security. Foremost among themwas household financial resources, but many other factorswere identified and the complexity of the issue was highlighted. Few studies were prospective and even fewer tested the use of interventions other than the supplemental nutrition assistance program to address food security. This indicates a solution-oriented research paradigm is required to identify effective interventions and policies to enhance food security. In addition, comprehensive top-down and bottom-up interventions at the community and national levels are urgently needed. Â© 2009 International Life Sciences Institute. Option_1: Include, Option_2: Exclude.",
+                "output": "Exclude",
+                "explanation": "This article is not about cooking, hence violating the criteria (2). So generated label is 'Exclude'."
+            }
+        ],
+        "Prompt": "Given the text of title and abstract of the PubMed article as context, classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Study-related to any person, adult or child, healthy or with comorbidity, (2) Reports cooking class/culinary intervention delivered by anyone (chef, dietitian, etc.), and (3) Reports a comparison with any control group."
+    },
+    "HRT": {
+        "Definition:": "In this task, you are given the text of title and abstract of the PubMed article as context. Your job is to classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Randomized and non-randomized comparative Hormone Replacement Therapy (HRT) studies, (2) Study-related to postmenopausal women of any age, (3) The follow-up period of more than 6 months, and (4) Comparison with non-HRT studies.",
+        "Examples": [
+            {
+                "input": "Does a better grade of tumour occurring in women under hormone replacement therapy compensate for their lower probability of detection by screening mammography OBJECTIVE: To compare the prognostic factor of breast cancer survival between breast cancer diagnosed in subjects receiving hormone replacement therapy (HRT) before diagnosis to those without such a therapy. Subjects and methods: All breast cancers diagnosed between 1993 and 2000 within the breast cancer screening programme in Bouches du Rhone (France) were analysed for size, node status, and grade according to use, or not, of HRT. Univariate and multivariate analyses were carried out taking into account age, density of the breast, and mode of detection. Option_1: Include, Option_2: Exclude.",
+                "output": "Include",
+                "explanation": "This article satisfies all four given criteria, hence generated label is 'Include'."
+            },
+            {
+                "input": "Role of immunohistochemical detection of lymph-node metastases in management of breast cancer. International Breast Cancer Study Group BACKGROUND: This study was designed to ascertain whether immunohistochemical methods could improve the detection of metastases in primary breast-cancer patients whose axillary lymph nodes were classified, by conventional methods, as disease free. Option_1: Include, Option_2: Exclude.",
+                "output": "Exclude",
+                "explanation": "This article is not about HRT, hence violating the criteria (1). So generated label is 'Exclude'."
+            }
+        ],
+        "Prompt": "Given the text of title and abstract of the PubMed article as context, classify a given article (i.e., context) into two categories: (1) Include and (2) Excludes based on inclusion criteria. Generate 'Include' if given context satisfies all given inclusion criteria, otherwise generate 'Exclude'. Inclusion criteria are given as: (1) Randomized and non-randomized comparative Hormone Replacement Therapy (HRT) studies, (2) Study-related to postmenopausal women of any age, (3) The follow-up period of more than 6 months, and (4) Comparison with non-HRT studies."
+    },
+    "De-identification_2006": {
+        "Definition:": "In this task, you are given a medical discharge record of the patient. Your task is to identify the Protected Health Information (PHI) tags from the given record. Generate the output in this format: tag1 <type_of_tag1>, tag2 <type_of_tag2>, ..., tagn <type_of_tagn>. Lits of type of tags - AGE: Patient whose age is above 90; DATE: Include all elements of the date except year; DOCTOR: Refers to medical doctors and other practitioners mentioned in the records, it excludes the titles, such as Dr. and MD; HOSPITAL: Marks the names of medical organizations and of nursing homes where patients are treated and may also reside. It includes room numbers of patients and buildings and floors related to doctors’ affiliations; ID: Refers to any combination of numbers, letters, and special characters identifying medical records, patients, doctors, or hospitals; LOCATION: Includes geographic locations such as cities, states, street names, zip codes, building names, and numbers; PATIENT: Includes the first and last names of patients, their health proxies, and family members. It excludes titles, such as Mr. and Mrs; PHONE: Includes telephone, pager, and fax numbers.",
+        "Examples": [
+            {
+                "input": "693008750 HLGMC 6001356 014235 9/18/2001 12:00:00 AM ED Discharge Summary Unsigned DIS Report Status : Unsigned ED DISCHARGE NOTIFICATION HUHTLAND , CIE MRN : 6001356 Age : 82y REGISTRATION DATE : 09/18/2001 10:52 AM PRELIMINARY REPORT This is to notify you that your patient , HUHTLAND , CIE arrived in the Emergency Department at Heaonboburg Linpack Grant Medical Center on 09/18/2001 10:52 AM . The patient presented with a chief complaint of WHEEZES . Following evaluation and treatment , the patient 's disposition at the end of the visit was ADMITTED AS AN INPATIENT TO HEAONBOBURG LINPACK GRANT MEDICAL CENTER . Your patient was admitted under the care of SAPSCLYSS , LEO R with a preliminary diagnosis of PNEUMONIA , . If you need additional information please call 605-304-8547 . PCP Name : SC , JUSONKIM N Provider Number : 96078 [ report_end ] ",
+                "output": "014235 <ID>, 9/18 <DATE>, HUHTLAND , CIE <PATIENT>, HEAONBOBURG LINPACK GRANT MEDICAL CENTER <HOSPITAL>, SAPSCLYSS , LEO R <DOCTOR>, 605-304-8547 <PHONE>, Heaonboburg Linpack Grant Medical Center <HOSPITAL>, 693008750 <ID>, SC , JUSONKIM N <DOCTOR>, HLGMC <HOSPITAL>, 6001356 <ID>, 96078 <ID>, 09/18 <DATE>",
+                "explanation": "In the given discharge summary, there are two dates PHI tags, i.e., 9/18 and 09/18 and also it is written correctly in the output, without the year of the date. Output also identifies all the ID tags, doctor name and patient name correctly. In addition, output generates all the different styles of the hospital name which is in input."
+            }
+        ],
+        "Prompt": "Given a discharge summary of the patient, return the PHI tags and their corresponding type."
+    },
+    "HoC": {
+        "Definition:": "In this task, you are given a medical text related to cancer. Your job is to classify into zero or more classes from (1) Sustaining proliferative signaling, (2) Resisting cell death, (3) Genomic instability and mutation, (4) Activating invasion and metastasis, (5) Tumor promoting inflammation, (6) Evading growth suppressors, (7) Inducing angiogenesis (8) Enabling replicative immortality, (9) Avoiding immune destruction and (10) Cellular energetics.",
+        "Examples": [
+            {
+                "input": "Studies of cell-cycle progression showed that the anti-proliferative effect of Fan was associated with an increase in the G1/S phase of PC3 cells .",
+                "output": "Evading growth suppressors, Sustaining proliferative signaling",
+                "explanation": "Given text is classified into two categories, hence, generated label is 'Evading growth suppressors, Sustaining proliferative signaling'."
+            }
+        ],
+        "Prompt": "Given a medical text related to cancer, classify into zero or more classes from (1) Sustaining proliferative signaling, (2) Resisting cell death, (3) Genomic instability and mutation, (4) Activating invasion and metastasis, (5) Tumor promoting inflammation, (6) Evading growth suppressors, (7) Inducing angiogenesis (8) Enabling replicative immortality, (9) Avoiding immune destruction and (10) Cellular energetics."
+    },
+    "Riskfactors_heart_disease_2014_yesno": {
+        "Definition:": "In this task, you are given a text of the patients' record as context and corresponding risk factors. As output, generate 'Yes' if the risk factor is present in the context, otherwise generate 'No'.",
+        "Examples": [
+            {
+                "input": "Context: Record date: 2086-06-29 EDVISIT^43294739^Finney, Indiana^06/29/86^GAY, G. VERNAL HISTORY OF PRESENT ILLNESS: This patient is a 48-year-old female who presents to Zucker Hillside Hospital Department of Emergency Medicine with complaints of chest pain. She was admitted to ED Observation Unit, after having no acute findings on EKG and a normal set of cardiac enzymes. Awake, alert, and in no acute distress. Vital signs in the ED this a.m. were grossly within normal limits. No chest pain this a.m. PHYSICAL EXAMINATION: HEENT: Normocephalic, atraumatic. Pupils equal, round, and reactive. Fundi benign. Neck: Supple. Chest is clear to auscultation and percussion. No rales, wheezes, or rhonchi. Heart notes a normal S1, S2, no S3, S4, no murmur. Abdomen is benign, soft, nontender, no masses, guarding, rebound, or organomegaly. Extremities: Grossly within normal limits. Neurologic: Awake, alert, able to follow commands. Negative Babinski. She had a second set of cardiac enzymes done in the observation portion of the ED, which were negative. PLAN: Do ETT this a.m. If negative, to home to be followed by her PMD, to return to the Emergency Department at Zucker Hillside Hospital if her problems persist or worsen. ______________________________ GAY, G. VERNAL M.D. D: 06/30/86 T: 06/30/86 Dictated By: GAY, G. VERNAL eScription document:3-9073761 BFFocus ******** Not reviewed by Attending Physician ******** \n Risk Factor: Family_history",
+                "output": "No",
+                "explanation": "Given risk factor, i.e., family history does not present in patient's record. Hence, generated labels is 'No'."
+            }
+        ],
+        "Prompt": "Given a text of the patients' record as context and corresponding risk factors, generate 'Yes' if risk factor is present in the context, otherwise generate 'No'."
+    },
+    "Time_riskfactors_heart_disease_2014_multi-label": {
+        "Definition:": "In this task, you are given a text of the patients' record as context and corresponding risk factors. Your job is to identify if this risk factor present (1) before DCT (Document Creation Time), (2) during DCT, or (3) after DCT. There may be multiple possible labels for the given context and risk factors because risk factors can be present in the patient at various times.",
+        "Examples": [
+            {
+                "input": "Context: Record date: 2078-09-17 HENDRICKS, HANNAH 75322175 09/17/2078 Trevon Schmidt, M.D. 47 Clinton Street, Guite 299 Decatur, WI 33955 Dear Dr. Schmidt: Your patient, Hannah Hendricks, was in the Surgery Clinic today. As you know, she is a 52-year-old woman with a history of peripheral vascular disease. She underwent a redo left femoral to anterior tibial bypass graft using basilic and cephalic vein from her right arm on May 3, 2078. She has done well since the procedure. She is now comes here complaining of left foot pain. She had an ultrasound in the vascular lab to rule out a DVT, which it did. She explains the discomfort as pain and burning in the bottom of her foot as well as her arch and over the dorsum of the foot. On exam, she is a well appearing female in no acute distress. She is alert and oriented x3. She appears grossly neurologically intact. Her lower extremity exam reveals easily palpable bypass graft pulse in her left leg. Her left foot is warm and well perfused and she has a very small pinhole ulcer over the plantar aspect of her left great toe. This does not appear infected and I cannot probe to bone. It remains superficial. She has no other ischemic skin changes noted. I have discussed with Hannah that her discomfort most likely is due to peripheral neuropathy due to her diabetes. She also experienced this discomfort prior to her surgery. She is enquiring about starting Neurontin. I have said she would be able to try either Neurontin or Lyrica to help with the peripheral neuropathy. She will return next week for her postoperative graft scan to assess her circulation. She knows to contact us sooner if thing worsen. If I can be of further assistance in her care, do not hesitate to contact me. Sincerely, Hunter Shea, MD Dictated by: Quanisha Logan, PA-C \n Risk Factor: Diabetes",
+                "output": "\"after DCT\", \"during DCT\", \"before DCT\"",
+                "explanation": "Given risk factor, i.e., diabetes presents in patient's record all the time. Hence, generated labels are 'after DCT', 'during DCT', 'before DCT'."
+            }
+        ],
+        "Prompt": "Given a text of the patients' record as context and corresponding risk factors, identify if this risk factor present (1) before DCT (Document Creation Time), (2) during DCT, or (3) after DCT."
+    }
+}
