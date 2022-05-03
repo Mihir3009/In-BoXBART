@@ -71,6 +71,8 @@ python scripts/finetune_model.py \
 
 > #### Evaluation
 
+To evaluate model, use [scripts/evaluation.py](https://github.com/Mirzyaaliii/In-BoXBART/blob/main/scripts/evaluation.py) and run it with the following arguments:
+
 ```python
 python evaluation.py \
 
