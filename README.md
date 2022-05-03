@@ -8,7 +8,7 @@ You may want to check out
 
 This work explores the impact of instructional prompts on biomedical Multi-Task Learning. We introduce the BoX, a collection of 32 instruction tasks for Biomedical NLP across (X) various categories. Using this meta-data![In-BoXBART]set, we propose a unified model termed In-BoXBART, that can jointly learn all tasks of the BoX without any task-specific modules. To the best of our knowledge, t(his is the first attempt to propose a unified model in the biomedical domain and use instructions to achieve generalization across several biomedical tasks.)
 
-![In-BoXBART](https://drive.google.com/file/d/1YbhO0a9bPbOJEZKulrqhkoUZUduAlTFH/view?usp=sharing)
+<!--![In-BoXBART](https://drive.google.com/file/d/1YbhO0a9bPbOJEZKulrqhkoUZUduAlTFH/view?usp=sharing)-->
 
 ## How to Use ##
 
