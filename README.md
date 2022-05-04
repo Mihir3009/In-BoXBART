@@ -25,7 +25,13 @@ git lfs install
 git clone https://huggingface.co/cogint/in-boxbart
 ```
 
+## Biomedical Instructions ##
+
+Please see `./templates` to find instructional prompts corresponsing to all tasks from BoX that are used for experiments. For more details, refer [our paper](https://arxiv.org/abs/2204.07600).
+
 ## Quick start ##
+
+Find below details to use our source code for fine-tuning other models.
 
 > #### Setup
 
@@ -36,9 +42,9 @@ pip install -r requirements.txt
 
 > #### Training
 
-In order to finetune model on your data, use [scripts/finetune_model.py](https://github.com/Mirzyaaliii/In-BoXBART/blob/main/scripts/finetune_model.py) and run it with the following arguments:
+In order to finetune model on your data, use `scripts/finetune_model.py` and run it with the following arguments:
 
-```python
+```
 python scripts/finetune_model.py \
 
         --model_name_or_path            Provide path of the model, you want to finetune. To finetune on BART use - "facebook/bart-base"
@@ -72,9 +78,9 @@ python scripts/finetune_model.py \
 
 > #### Evaluation
 
-To evaluate model, use [scripts/evaluation.py](https://github.com/Mirzyaaliii/In-BoXBART/blob/main/scripts/evaluation.py) and run it with the following arguments:
+To evaluate model, use `scripts/evaluation.py` and run it with the following arguments:
 
-```python
+```
 python evaluation.py \
 
             --dataset_file              Path of test data file (a JSON or CSV file), which contains ground truth.
@@ -99,5 +105,5 @@ If you are using our model, please cite our paper:
 ```
 
 ## Contact Information ##
-* For help or issues using In-BoXBART, please submit a GitHub issue.
+* For help or issues in using In-BoXBART, please submit a GitHub issue.
 * Please contact Mihir Parmar (mparmar3@asu.edu) or Mirali Purohit (mpurohi3@asu.edu) for communication related to In-BoXBART.
