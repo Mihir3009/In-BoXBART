@@ -6,7 +6,7 @@ You may want to check out
 * Our paper (NAACL 2022 Findings): [In-BoXBART: Get Instructions into Biomedical Multi-Task Learning](https://arxiv.org/abs/2204.07600)
 * Hugging Face: [cogint/in-boxbart](https://huggingface.co/cogint/in-boxbart)
 
-This work explores the impact of instructional prompts on biomedical Multi-Task Learning. We introduce the BoX, a collection of 32 instruction tasks for Biomedical NLP across (X) various categories. Using this meta-data![In-BoXBART]set, we propose a unified model termed In-BoXBART, that can jointly learn all tasks of the BoX without any task-specific modules. To the best of our knowledge, t(his is the first attempt to propose a unified model in the biomedical domain and use instructions to achieve generalization across several biomedical tasks.)
+This work explores the impact of instructional prompts on biomedical Multi-Task Learning. We introduce the BoX, a collection of 32 instruction tasks for Biomedical NLP across (X) various categories. Using this meta-dataset, we propose a unified model termed In-BoXBART, that can jointly learn all tasks of the BoX without any task-specific modules. To the best of our knowledge, t(his is the first attempt to propose a unified model in the biomedical domain and use instructions to achieve generalization across several biomedical tasks.)
 
 <!--![In-BoXBART](https://drive.google.com/file/d/1YbhO0a9bPbOJEZKulrqhkoUZUduAlTFH/view?usp=sharing)-->
 
