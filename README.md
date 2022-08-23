@@ -91,6 +91,20 @@ python evaluation.py \
                                         (default: None)
 ```
 
+## Inference Example ##
+
+Here, we provide example for "Document Classification" (HoC dataset) task. Once you load model from huggigface for inference, you can append instruction given in `./templates` for that particular dataset with input instance. Below is example for one instance.
+
+```python
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+tokenizer = AutoTokenizer.from_pretrained("cogint/in-boxbart")
+model = AutoModelForSeq2SeqLM.from_pretrained("cogint/in-boxbart")
+
+input = "Instruction: Definition: In this task, you are given a medical text related to cancer. Your job is to classify into zero or more classes from (1) Sustaining proliferative signaling, (2) Resisting cell death, (3) Genomic instability and mutation, (4) Activating invasion and metastasis, (5) Tumor promoting inflammation, (6) Evading growth suppressors, (7) Inducing angiogenesis (8) Enabling replicative immortality, (9) Avoiding immune destruction and (10) Cellular energetics., Positive Examples: [[input: Studies of cell-cycle progression showed that the anti-proliferative effect of Fan was associated with an increase in the G1/S phase of PC3 cells ., output: Evading growth suppressors, Sustaining proliferative signaling, explanation: Given text is classified into two categories, hence, generated label is 'Evading growth suppressors, Sustaining proliferative signaling'.] ]; Instance: input: Similar to previous studies utilizing IGF-1 , pretreatment with Roscovitine leads to a significant up-regulation of p21 expression and a significant decrease in the number of PCNA positive cells ., output: ?"
+
+output = model(input)
+```
+
 ## BibTeX Entry and Citation Info ##
 
 If you are using our model, please cite our paper:
